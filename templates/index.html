@@ -1,0 +1,179 @@
+<html>
+          <head>
+                    <title>Pomona Course Reviews</title>
+                    <link rel="stylesheet" type="text/css" href="/static/style.css">
+                    <link href='http://fonts.googleapis.com/css?family=Raleway:300,500,700' rel='stylesheet' type='text/css'>
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                      <link rel="stylesheet" href="static/chosen/chosen.css" />
+                      <link rel="stylesheet" href="static/component.css" />
+    <script src="static/chosen/chosen.jquery.js"></script>
+                        
+
+
+          </head>
+          
+
+          <body>
+
+  <form onsubmit = "test(this.major.value, 'hi', 'hi', 'hi')" method="GET" class="search-box">
+        <table>
+          <tr>
+            <td>
+         <div  class = "styled">
+        <span id="spanForMajorChosenSelect">
+          <select data-placeholder="Choose a major..." class ="major" name="major" id= "language">
+          <option value="any">Any</option>
+          <option value="AFRI">Africana Studies</option>
+          <option value="AISS">Accel Integrated Science</option>
+          <option value="AMST">American Studies</option>
+          <option value="ARBC">Arabic</option>
+          <option value="ARCN">Art Conservation</option>
+          <option value="ARHI">Art History</option>
+          <option value="ART">Art</option>
+          <option value="AS">Aerospace Studies</option>
+          <option value="ASIA">Asian Studies</option>
+          <option value="ASTR">Astronomy</option>
+          <option value="BIOL">Biology</option>
+          <option value="CHEM">Chemistry</option>
+          <option value="CHIN">Chinese</option>
+          <option value="CHLT">Chicano & Latino Studies</option>
+          <option value="CHNT">Chinese Lit, Engl Trans</option>
+          <option value="CHST">Chicano Studies</option>
+          <option value="CL">Core Lab (HMC)</option>
+          <option value="CLAS">Classics</option>
+          <option value="CORE">Core Courses</option>
+          <option value="CREA">Creative Studies</option>
+          <option value="CSCI">Computer Science</option>
+          <option value="CSMT">Computer Sci-Mathematics</option>
+          <option value="DANC">Dance</option>
+          <option value="EA">Environmental Analysis</option>
+          <option value="ECON">Economics</option>
+          <option value="EDUC">Education</option>
+          <option value="ENGL">English</option>
+          <option value="ENGR">Engineering</option>
+          <option value="FHS">Freshman Humanities Seminar</option>
+          <option value="FLAN">Foreign Languages</option>
+          <option value="FREN">French</option>
+          <option value="FWS">Freshman Writing Seminar</option>
+          <option value="GEOL">Geology</option>
+          <option value="GERM">German</option>
+          <option value="GOVT">Government</option>
+          <option value="GWS">Gender & Women's Studies</option>
+          <option value="HIST">History</option>
+          <option value="HMSC">Humanities Major:Culture </option>
+          <option value="HSID">History of Ideas</option>
+          <option value="HUM">Humanities</option>
+          <option value="ID">Interdisciplinary Studies</option>
+          <option value="IIS ">Intl/Intercultural Studies</option>
+          <option value="IR">International Relations></option>
+          <option value="ITAL">Italian</option>
+          <option value="JAPN">Japanese</option>
+          <option value="JPNT">Japanese Literature</option>
+          <option value="KORE">Korean</option>
+          <option value="LAMS">Late Antique-Medieval Studies</option>
+          <option value="LAST">Latin American Studies</option>
+          <option value="LEAD">Leadership Sequence</option>
+          <option value="LGCS">Linguistics & Cog Sci</option>
+          <option value="LIT">Literature</option>
+          <option value="MATH">Math</option>
+          <option value="MCBI">Mathemat/Comput Biology</option>
+          <option value="MES">Middle Eastern Studies</option>
+          <option value="MLLC">Modern Lang, Lit & Cult</option>
+          <option value="MOBI">Molecular Biology</option>
+          <option value="MS">Media Studies</option>
+          <option value="MSL">Military Sci.&Leadership </option>
+          <option value="MUS">Music</option>
+          <option value="NEUR">Neuroscience</option>
+          <option value="ONT">Ontario Program</option>
+          <option value="ORST">Organizational Studies</option>
+          <option value="PE">Physical Education</option>
+          <option value="PHIL">Philosophy</option>
+          <option value="PHYS">Physics</option>
+          <option value="POLI">Politics</option>
+          <option value="PORT">Portuguese</option>
+          <option value="POST">Political Studies</option>
+          <option value="PPA">Public Policy Analysis</option>
+          <option value="PPE">Philosophy,Politics,Econonmics</option>
+          <option value="PSYC">Psychology</option>
+          <option value="RLST">Religious Studies</option>
+          <option value="RUSS">Russian</option>
+          <option value="RUST">Russian Lit, Engl Trans</option>
+          <option value="SOC">Sociology</option>
+          <option value="SOSC">Social Science</option>
+          <option value="SPAN">Spanish</option>
+          <option value="SPCH">Speech</option>
+          <option value="STS">Science,Technology,Society</option>
+          <option value="THEA">Theatre</option>
+          <option value="WRIT">Writing</option>
+        </select>
+      </span>
+      </div>
+          </td>
+
+      <div class="school">
+      <td>
+        <span id="spanForSchoolChosenSelect">
+         <select data-placeholder="Choose a school..." class ="major school" name="major" id= "language">
+          <option value="any">All</option>
+          <option value="PO">Pomona</option>
+          <option value="HMC">Harvey Mudd</option>
+          <option value="CMC">Claremont Mckenna</option>
+          <option value="SC">Scripps</option>
+          <option value="PZ">Pitzer</option>
+          
+        </select>
+      </span>
+      </td>
+    </div>
+    </tr>
+  </table>
+ <center><table>
+    <tr>
+    <td>
+           <center><a href="#" style="text-decoration: none; color: #fff"><div class="orbutton" id="search" style="font-weight: bold">Search!</div></a></center>
+      </td>
+    </tr>
+         </table></center>
+
+  <div id="background"></div>
+  <script>
+  $(".major").chosen();
+    jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
+                                                $(window).scrollTop()) + "px");
+    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
+                                                $(window).scrollLeft()) + "px");
+    return this;
+}
+
+    $(function(){
+      $("#search").click(function(){
+        var major = $("select.major").val();
+        if(major===""){
+          major="any";
+        }
+        var school = $("select.school").val();
+        if(school===""){
+          school="any";
+        }
+        var min = $("input#complete").val();
+        if(min===""){
+          min="0";
+        }
+        var max = $("input#big").val();
+        if(max===""){
+          max="1000"
+        }
+        window.location.href = "/major/"+major;
+      });
+    });
+
+    
+  
+
+  </script>
+
+
+          </body>
+</html>

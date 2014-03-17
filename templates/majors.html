@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title> Majors </title>
+	</head>
+	<body>
+		<ul>
+			{% for i in range(0,length)%}
+			<li><a href="/major/{{major[i]}}">{{major[i]}}</a></li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
+

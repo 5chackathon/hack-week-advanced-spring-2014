@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Courses List {{course_list[0]['major']}}</title>
+	</head>
+	<body>
+		<h1>{{course_list[0]['major']}}</h1>
+		<ul>
+			{% for c in course_list%}
+			<li>
+				{{ c['name'] }}
+				{{ c['profs'] }}
+			</li>
+			{% endfor %}	
+		</ul>	
+	</body>
+	

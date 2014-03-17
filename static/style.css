@@ -1,0 +1,14 @@
+.orbutton
+{
+  background-color: #ff9300;
+  border-radius: 10px;
+  width: 150px;
+  height: 49.5px;
+  line-height: 49.5px;
+  color: #fff;
+
+}
+
+.orbutton:hover {
+  background-color: #e68400;
+}
