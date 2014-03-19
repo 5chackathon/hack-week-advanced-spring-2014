@@ -1,21 +1,4 @@
 <html>
-<<<<<<< HEAD
-	<head>
-		<title>Courses List {{course_list[0]['major']}}</title>
-	</head>
-	<body>
-		<h1>{{course_list[0]['major']}}</h1>
-		<ul>
-			{% for c in course_list%}
-			<li>
-			<a href="{{c['major']}}/{{c['number']}}"> {{ c['name'] }} </a>
-				{{ c['profs'] }}
-			</li>
-			{% endfor %}	
-		</ul>	
-	</body>
-	
-=======
 <head>
   <title>Courses List | {{ major|default('All Courses', True) }}</title>
 </head>
@@ -24,10 +7,10 @@
     <ul>
       {% for course in courses %}
       <li>
-        {{ course.name }}
+      <a href="/major/{{course['major']}}/{{course['number']}}">{{ course.name }}</a>
         {{ course.profs }}
       </li>
       {% endfor %}
     </ul>
   </body>
->>>>>>> f013599da9265187db8b1a65aeafa522e42631f2
+</html>
