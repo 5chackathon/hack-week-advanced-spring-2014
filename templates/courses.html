@@ -7,7 +7,7 @@
 		<ul>
 			{% for c in course_list%}
 			<li>
-				{{ c['name'] }}
+			<a href="{{c['major']}}/{{c['number']}}"> {{ c['name'] }} </a>
 				{{ c['profs'] }}
 			</li>
 			{% endfor %}	

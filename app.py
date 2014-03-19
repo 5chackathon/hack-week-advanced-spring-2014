@@ -30,11 +30,15 @@ def majors():
 @app.route('/major/<major>')
 def classlist(major):
 	course_list = list(db.course_col.find( {"major" : major}))
-	for c in course_list:
-		print(c)
 	return render_template("courses.html",course_list = course_list)
 	
-
+@app.route('/major/<major>/<number>')
+def ratings(major,number):
+	number = int(number)
+	course = db.course_col.find({"major": major, "number" : number});
+	rating = 0.0;
+	course = course[0];
+	return render_template("ratings.html",course = course, rating = rating);
 
 @app.route('/')
 def index():
