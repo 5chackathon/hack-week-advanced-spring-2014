@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 	<head>
 		<title>Courses List {{course_list[0]['major']}}</title>
 	</head>
@@ -14,3 +15,19 @@
 		</ul>	
 	</body>
 	
+=======
+<head>
+  <title>Courses List | {{ major|default('All Courses', True) }}</title>
+</head>
+  <body>
+  <h1>{{ major|default('All Courses', True) }} {% if major_code %}{{ '(' ~ major_code ~ ')' }}{% endif %}</h1>
+    <ul>
+      {% for course in courses %}
+      <li>
+        {{ course.name }}
+        {{ course.profs }}
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+>>>>>>> f013599da9265187db8b1a65aeafa522e42631f2
