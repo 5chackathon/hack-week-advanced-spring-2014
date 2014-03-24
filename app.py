@@ -21,15 +21,19 @@ def majors():
 
 @app.route('/courses')
 def classes_for_major():
-    major  = request.args.get('major', 'any')
+    major_code = request.args.get('major', 'any')
     school = request.args.get('school', 'any')
 
-    if major not in MAJORS:
+    if major_code not in MAJORS:
         # Show all the majors
         courses = list(db.course_col.find())
+        major = None
+        major_code = None
     else:
-        courses = list(db.course_col.find({ 'major': major }))
-    return render_template("courses.html", courses=sorted(courses), major=major)
+        courses = list(db.course_col.find({ 'major': major_code }))
+        major = MAJORS[major_code]
+    return render_template("courses.html", courses=sorted(courses),
+            major_code=major_code, major=major)
 
 
 @app.route('/')
