@@ -1,13 +1,12 @@
 <html>
-	<head>
-		<title> Majors </title>
-	</head>
-	<body>
-		<ul>
-			{% for i in range(0,length)%}
-			<li><a href="/major/{{major[i]}}">{{major[i]}}</a></li>
-			{% endfor %}
-		</ul>
-	</body>
+<head>
+  <title>Majors</title>
+</head>
+<body>
+  <ul>
+    {% for major in majors %}
+    <li><a href="/major/{{major}}">{{major}}</a></li>
+    {% endfor %}
+  </ul>
+</body>
 </html>
-

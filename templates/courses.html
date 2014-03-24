@@ -1,16 +1,15 @@
 <html>
-	<head>
-		<title>Courses List {{course_list[0]['major']}}</title>
-	</head>
-	<body>
-		<h1>{{course_list[0]['major']}}</h1>
-		<ul>
-			{% for c in course_list%}
-			<li>
-				{{ c['name'] }}
-				{{ c['profs'] }}
-			</li>
-			{% endfor %}	
-		</ul>	
-	</body>
-	
+<head>
+  <title>Courses List | {{ major }}</title>
+</head>
+  <body>
+    <h1>{{ major }}</h1>
+    <ul>
+      {% for course in courses %}
+      <li>
+        {{ course.name }}
+        {{ course.profs }}
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
