@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Courses List | {{ major|default('All Courses', True) }}</title>
+  <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
 </head>
   <body>
   <h1>{{ major|default('All Courses', True) }} {% if major_code %}{{ '(' ~ major_code ~ ')' }}{% endif %}</h1>

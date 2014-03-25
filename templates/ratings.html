@@ -1,14 +1,39 @@
 <html>
 	<head>
 		<title>Courses List {{course['coursename']}}</title>
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
+
 	</head>
 	<body>
-		<h1>{{course['name']}} -  {{rating}}/5.0</h1>
-		<h2>{{course['major']}}</h2>
-		<h2>{{course['profs']}}</h2>
-		<p>{{course['description']}}</p>
-		<h1>Reviews:</h1>
-		<ul>
-		</ul>
+		<div class="container">
+			<h1>{{course['name']}} -  <span class="text-success">{{rating}}/5.0</span></h1>
+			<h2>{{course['major']}}</h2>
+			<h2>{{course['profs']}}</h2>
+			<p>{{course['description']}}</p>
+			<h1>Reviews:</h1>
+
+		
+			<form role="form" class="form">
+			  <div class="form-group">
+			    <label for="rating">Rating</label>
+			    <select class="form-control" id="rating">
+			    	<option value="1">1</option>
+			    	<option value="2">2</option>
+			    	<option value="3">3</option>
+			    	<option value="4">4</option>
+			    	<option value="5">5</option>
+			    </select>
+			  </div>
+			  <div class="form-group">
+			    <label for="review">Review</label>
+			    <textarea id="review" class="form-control" rows="3"></textarea>
+			  </div>
+		  
+		  		<button type="submit" class="btn btn-success">Submit</button>
+			</form>
+			<ul>
+			</ul>
+		</div>
+		
 	</body>
 </html>	

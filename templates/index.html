@@ -1,14 +1,22 @@
 <html>
 <head>
   <title>Pomona Course Reviews</title>
+  <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/static/style.css">
   <link href='http://fonts.googleapis.com/css?family=Raleway:300,500,700' rel='stylesheet' type='text/css'>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="static/chosen/chosen.css" />
-  <link rel="stylesheet" href="static/component.css" />
   <script src="static/chosen/chosen.jquery.js"></script>
 </head>
 <body>
+  <div class="container">
+    <h1>5C Course reviews</h1>
+    <div class="jumbotron">
+        <h2>Welcome</h2>
+        <p>This site lets you review any course at the 5Cs!</p>
+    </div>
+  
+  
   <form action="{{ url_for('classes_for_major') }}" method="get" class="search-box">
     <select data-placeholder="Choose a major..." class="major" name="major" id="language">
       <option value="any">Any</option>
@@ -24,8 +32,9 @@
       <option value="SC">Scripps</option>
       <option value="PZ">Pitzer</option>
     </select>
-    <input id="submitButton" type="submit" value="Search!" />
+    <button type="submit"  class="btn btn-warning btn-lg">Search!</button>
   </form>
+  </div>
 </body>
 <script>
   $('.major').chosen();
