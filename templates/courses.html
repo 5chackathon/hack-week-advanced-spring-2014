@@ -6,13 +6,20 @@
 <div class="page-header">
   <h1>{{ major|default('All Courses', True) }} {% if major_code %}<small>{{ major_code }}</small>{% endif %}</h1>
 </div>
-<ul class="list-unstyled">
-{% for course in courses %}
-  <li>
-    <a href="/major/{{course['major']}}/{{course['number']}}">{{ course.name }}</a> {{ course.teacher }}
-  </li>
-{% endfor %}
-{% if not courses %}
+{% if courses %}
+<table class="table">
+  <tr>
+    <th>Course Name</th>
+    <th>Professor</th>
+  </tr>
+  {% for course in courses %}
+  <tr>
+    <td><a href="/major/{{ course['major'] }}/{{ course['number'] }}">{{ course.name }}</a></td>
+    <td>{{ course.teacher }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
 <h2>No matches found. <a href="{{ url_for('index') }}">Try again?</h2>
 {% endif %}
 </ul>
