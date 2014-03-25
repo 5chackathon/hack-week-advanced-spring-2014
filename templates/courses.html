@@ -1,17 +1,14 @@
-<html>
-<head>
-  <title>Courses List | {{ major|default('All Courses', True) }}</title>
-  <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
-</head>
-  <body>
-  <h1>{{ major|default('All Courses', True) }} {% if major_code %}{{ '(' ~ major_code ~ ')' }}{% endif %}</h1>
-    <ul>
-      {% for course in courses %}
-      <li>
-      <a href="/major/{{course['major']}}/{{course['number']}}">{{ course.name }}</a>
-        {{ course.profs }}
-      </li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Courses List | {{ major|default('All Courses', True) }}{% endblock %}
+
+{% block content %}
+<h1>{{ major|default('All Courses', True) }} {% if major_code %}{{ '(' ~ major_code ~ ')' }}{% endif %}</h1>
+<ul>
+{% for course in courses %}
+  <li>
+    <a href="/major/{{course['major']}}/{{course['number']}}">{{ course.name }}</a> {{ course.profs }}
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}
