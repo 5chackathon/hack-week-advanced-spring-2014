@@ -46,7 +46,7 @@ def ratings(major, number):
     if reviews:
         ratings_sum = sum([r.get('rating', 0) for r in reviews])
         avg_rating = float(ratings_sum) / len(reviews)
-        avg_rating = round(rating, 2)
+        avg_rating = round(avg_rating, 2)
     course = course[0]
     return render_template("ratings.html", course=course, avg_rating=avg_rating,
             reviews=reviews)
