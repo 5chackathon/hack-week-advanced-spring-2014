@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import random
 import pymongo
 import yaml
@@ -39,6 +39,8 @@ def ratings(major, number):
             }
 
             db.reviews.insert(review)
+            # Change the request type to GET
+            return redirect(url_for('ratings', major=major, number=number), code=303)
 
     reviews = list(db.reviews.find({'major': major, 'course_number': number}))
     course = db.course_col.find({"major": major, "number" : number})
