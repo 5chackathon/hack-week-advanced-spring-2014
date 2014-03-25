@@ -3,8 +3,10 @@
 {% block title %}Courses List | {{ major|default('All Courses', True) }}{% endblock %}
 
 {% block content %}
-<h1>{{ major|default('All Courses', True) }} {% if major_code %}{{ '(' ~ major_code ~ ')' }}{% endif %}</h1>
-<ul>
+<div class="page-header">
+  <h1>{{ major|default('All Courses', True) }} {% if major_code %}<small>{{ major_code }}</small>{% endif %}</h1>
+</div>
+<ul class="list-unstyled">
 {% for course in courses %}
   <li>
     <a href="/major/{{course['major']}}/{{course['number']}}">{{ course.name }}</a> {{ course.profs }}

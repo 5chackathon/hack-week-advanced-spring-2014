@@ -8,7 +8,16 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-  <div id="content">{% block content %}{% endblock %}</div>
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{{ url_for('index') }}">5C Course Reviews</a>
+        </div>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+  </div>
 </body>
 {% block scripts %}
 {% endblock %}

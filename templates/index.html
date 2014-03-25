@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}Pomona Course Reviews{% endblock %}
+{% block title %}5C Course Reviews{% endblock %}
 
 {% block content %}
-<h1>5C Course reviews</h1>
 <div class="jumbotron">
-  <h2>Welcome</h2>
-  <p>This site lets you review any course at the 5Cs!</p>
+  <h2>Welcome to 5C Course Reviews!</h2>
+  <p>You can read tons of reviews written about any course at the 5Cs. Search courses by major or school, and write your own reviews, too!</p>
 </div>
 <form action="{{ url_for('classes_for_major') }}" method="get" class="search-box">
-  <select data-placeholder="Choose a major..." class="major" name="major" id="language">
+  <select data-placeholder="Choose a major..." class="chosen-select major" name="major">
+    <option></option>
     <option value="any">Any</option>
     {% for code, major in majors|dictsort %}
     <option value="{{ code }}">{{ major }}</option>
     {% endfor %}
   </select>
-  <select data-placeholder="Choose a school..." class="major school" name="school" id="language">
+  <select data-placeholder="Choose a school..." class="chosen-select school" name="school">
+    <option></option>
     <option value="any">All</option>
     <option value="PO">Pomona</option>
     <option value="HMC">Harvey Mudd</option>
@@ -31,6 +32,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='chosen/chosen.jquery.js') }}"></script>
 <script>
-    $('.major').chosen();
+    $('.chosen-select').chosen();
 </script>
 {% endblock %}
