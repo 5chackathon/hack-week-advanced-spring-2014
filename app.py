@@ -59,14 +59,23 @@ def classes_for_major():
     major_code = request.args.get('major', 'any')
     school = request.args.get('school', 'any')
 
-    if major_code not in MAJORS:
-        # Show all the majors
-        courses = list(db.course_col.find())
-        major = None
-        major_code = None
-    else:
-        courses = list(db.course_col.find({ 'major': major_code }))
+    major = None
+
+    filter_doc = {}
+
+    if major_code != 'any':
+        filter_doc['major'] = major_code
         major = MAJORS[major_code]
+    else:
+        major_code = None
+
+    if school != 'any':
+        filter_doc['school'] = school
+    else:
+        school = None
+
+    courses = list(db.course_col.find(filter_doc))
+
     return render_template("courses.html", courses=sorted(courses),
             major_code=major_code, major=major)
 

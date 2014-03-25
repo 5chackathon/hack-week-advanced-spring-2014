@@ -12,5 +12,8 @@
     <a href="/major/{{course['major']}}/{{course['number']}}">{{ course.name }}</a> {{ course.teacher }}
   </li>
 {% endfor %}
+{% if not courses %}
+<h2>No matches found. <a href="{{ url_for('index') }}">Try again?</h2>
+{% endif %}
 </ul>
 {% endblock %}
