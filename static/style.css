@@ -1,4 +1,4 @@
-#submitButton {
+/*#submitButton {
   background-color: #ff9300;
   border-radius: 10px;
   width: 150px;
@@ -13,4 +13,11 @@
 
 #submitButton:hover {
   background-color: #e68400;
+}
+*/
+.search-box{
+  text-align: center;
+}
+.chzn-results{
+  text-align: left;
 }
