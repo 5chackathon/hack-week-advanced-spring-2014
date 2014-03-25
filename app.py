@@ -18,13 +18,35 @@ MAJORS = yaml.load(file('majors.yaml', 'r'))
 def majors():
     return render_template('majors.html', majors=MAJORS)
 
-@app.route('/major/<major>/<number>')
-def ratings(major,number):
-	number = int(number)
-	course = db.course_col.find({"major": major, "number" : number});
-	rating = 0.0;
-	course = course[0];
-	return render_template("ratings.html",course = course, rating = rating);
+@app.route('/major/<major>/<number>', methods=['GET', 'POST'])
+def ratings(major, number):
+    number = int(number)
+    if request.method == 'POST':
+        # Store the review in the database
+        review_text = request.form.get('review', None)
+        name = request.form.get('name', None)
+        rating = int(request.form['rating'])
+        if review_text:
+            if not name:
+                name = 'Anonymous'
+
+            review = {
+                'name': name,
+                'text': review_text,
+                'major': major,
+                'course_number': number,
+                'rating': rating
+            }
+
+            db.reviews.insert(review)
+
+    reviews = list(db.reviews.find({'major': major, 'course_number': number}))
+    course = db.course_col.find({"major": major, "number" : number})
+    rating = sum([r.get('rating', 0) for r in reviews]) / float(len(reviews))
+    rating = round(rating, 2)
+    course = course[0]
+    return render_template("ratings.html", course=course, rating=rating,
+            reviews=reviews)
 
 
 @app.route('/courses')

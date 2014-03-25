@@ -21,3 +21,19 @@
 .chzn-results{
   text-align: left;
 }
+
+input, textarea {
+    display: block;
+    height: auto;
+    font-family: inherit;
+}
+
+.reviewForm div {
+    margin-bottom: 10px;
+}
+
+.reviewForm label {
+    display: block;
+    width: 12em;
+    margin-left: 5px;
+}
