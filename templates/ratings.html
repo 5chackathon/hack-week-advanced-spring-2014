@@ -6,8 +6,8 @@
 <div class="page-header">
   <h1>{{ course['name'] }} <small>{{ course['major'] }}</small></h1>
 </div>
-<h2>{{ course['profs'].split('—')[0] }}</h2>
-<h2>Average Rating: {{ avg_rating ~ '/5.0'|default('No ratings', True) }}</h2>
+<h2>{{ course['teacher'] }}</h2>
+<h2>Average Rating: {{ avg_rating|default('No ratings', True) }}</h2>
 <div class="well well-sm">
   <p>{{ course['description'] }}</p>
 </div>

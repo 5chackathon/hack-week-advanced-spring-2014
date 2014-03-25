@@ -9,7 +9,7 @@
 <ul class="list-unstyled">
 {% for course in courses %}
   <li>
-    <a href="/major/{{course['major']}}/{{course['number']}}">{{ course.name }}</a> {{ course.profs }}
+    <a href="/major/{{course['major']}}/{{course['number']}}">{{ course.name }}</a> {{ course.teacher }}
   </li>
 {% endfor %}
 </ul>
