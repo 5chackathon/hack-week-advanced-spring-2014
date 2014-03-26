@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for
-import random
 import pymongo
 import yaml
 
@@ -73,16 +72,18 @@ def classes_for_major():
     else:
         school = None
 
-    courses = list(db.course_col.find(filter_doc))
+    def by_name(course):
+        return course['name']
 
-    return render_template("courses.html", courses=sorted(courses),
-            major_code=major_code, major=major)
+    courses = sorted(list(db.course_col.find(filter_doc)), key=by_name)
+
+    return render_template("courses.html", courses=courses,
+                           major_code=major_code, major=major)
 
 
 @app.route('/')
 def index():
     courses = list(db.course_col.find())
-    random.shuffle(courses)
     return render_template('index.html', courses=courses, majors=MAJORS)
 
 
