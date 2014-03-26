@@ -18,9 +18,8 @@ MAJORS = yaml.load(file('majors.yaml', 'r'))
 def majors():
     return render_template('majors.html', majors=MAJORS)
 
-@app.route('/major/<major>/<number>', methods=['GET', 'POST'])
+@app.route('/major/<major>/<int:number>', methods=['GET', 'POST'])
 def ratings(major, number):
-    number = int(number)
     if request.method == 'POST':
         # Store the review in the database
         review_text = request.form.get('review', None)
