@@ -50,11 +50,14 @@ prompt:
 
     cinst python -Version 2.7.6
 
+__IMPORTANT__: You need to close and reopen cmd.exe after each `cinst` command.
+
 After installing Python, you need to install `pip`, the Python package manager.
 Open a command prompt and type
 
     cinst easy.install
     cinst pip
+
 
 Now, navigate to the folder where you stored the project. `Shift+Right Click` on
 the folder to open an administrator command prompt, and type the following
