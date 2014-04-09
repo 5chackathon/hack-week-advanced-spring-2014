@@ -4,12 +4,11 @@ import yaml
 
 app = Flask(__name__)
 
-mongodb_uri = 'mongodb://pomonashuffle:arrokearroke@ds033907.mongolab.com:33907/pomonashuffle'
-db_name = 'pomonashuffle'
+mongodb_uri = 'mongodb://5chackathon:hackweek@ds041367.mongolab.com:41367/hackweek'
+db_name = 'hackweek'
 connection = pymongo.Connection(mongodb_uri)
 db = connection[db_name]
 
-course_col = db.course_col
 
 MAJORS = yaml.load(file('majors.yaml', 'r'))
 
@@ -41,7 +40,7 @@ def ratings(major, number):
             return redirect(url_for('ratings', major=major, number=number), code=303)
 
     reviews = list(db.reviews.find({'major': major, 'course_number': number}))
-    course = db.course_col.find({"major": major, "number" : number})
+    course = db.course_info.find({"major": major, "number" : number})
     avg_rating = None
     if reviews:
         ratings_sum = sum([r.get('rating', 0) for r in reviews])
@@ -75,15 +74,14 @@ def classes_for_major():
     def by_name(course):
         return course['name']
 
-    courses = sorted(list(db.course_col.find(filter_doc)), key=by_name)
-
+    courses = sorted(list(db.course_info.find(filter_doc)), key=by_name)
     return render_template("courses.html", courses=courses,
                            major_code=major_code, major=major)
 
 
 @app.route('/')
 def index():
-    courses = list(db.course_col.find())
+    courses = list(db.course_info.find())
     return render_template('index.html', courses=courses, majors=MAJORS)
 
 
