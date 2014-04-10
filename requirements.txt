@@ -6,3 +6,4 @@ itsdangerous==0.23
 pymongo==2.6.3
 wsgiref==0.1.2
 PyYAML==3.11
+gunicorn==0.17.2
